@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AlertHandle {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("driver.chrome.driver", "F:\\I\\EclipseWorkSpace\\Demo121\\chromedriver.exe");
+		System.setProperty("driver.chrome.driver", "ExeFiles\\chromedriver.exe");
 		System.out.println(System.getProperty("driver.chrome.driver"));
 		WebDriver webd = new ChromeDriver();
 		webd.navigate().to("http://t4t5.github.io/sweetalert/");
