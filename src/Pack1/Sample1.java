@@ -6,8 +6,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.codec.binary.Base64;
+
+
 
 public class Sample1  {
 
@@ -39,16 +42,22 @@ public class Sample1  {
 //			URLConnection uc = url.openConnection();
 
 			String userpass = username + ":" + password;
-			String basicAuth = "Basic " + new String(new Base64().encode(userpass.getBytes()));
+			String basicAuth1 = "Basic " + new String(new Base64().encode(userpass.getBytes()));
 //			uc.setRequestProperty ("Authorization", basicAuth);
 //			InputStream in = uc.getInputStream();
-			System.out.println("basicAuth is :"+basicAuth);
+			System.out.println("basicAuth1 is :"+basicAuth1);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-	
+//		String encoded = Base64.getEncoder().encodeToString((username+":"+password).getBytes(StandardCharsets.UTF_8));
+//		String basicAuth2 = "Basic "+basicAuth;
+		
+		byte[] message = (username+":"+password).getBytes("UTF-8");
+		String encod = javax.xml.bind.DatatypeConverter.printBase64Binary(message);		
+		System.out.println("basicAuth2 is :"+encod);
+				
 	}
 
 }
