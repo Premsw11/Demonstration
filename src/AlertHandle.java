@@ -14,8 +14,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AlertHandle {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\ExeFiles\\chromedriver.exe");
-		System.out.println(System.getProperty("driver.chrome.driver"));
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/ExeFiles/Linuxchromedriver");
+		
+		System.out.println(System.getProperty("webdriver.chrome.driver"));
 		WebDriver webd = new ChromeDriver();
 		webd.navigate().to("http://t4t5.github.io/sweetalert/");
 		webd.manage().window().maximize();
