@@ -17,6 +17,7 @@ public class GetElementsAndPutInXLS {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		System.out.println("At line 1");
+		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"//ExeFiles//Linuxgeckodriver");
 		WebDriver objwD = new FirefoxDriver();
 		objwD.navigate().to("https://www.flipkart.com/");
 		objwD.manage().window().maximize();

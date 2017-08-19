@@ -16,7 +16,7 @@ public class DropDown {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		// Create a new instance of the FireFox driver
-		System.setProperty("webdriver.chorme.driver","F:\\IT\\EclipseWorkSpace\\Demo121\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//ExeFiles//Linuxchromedriver");
 		WebDriver driver = new ChromeDriver();
 		 
  
