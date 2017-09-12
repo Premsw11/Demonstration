@@ -79,16 +79,18 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.4.0</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>4.1.2</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>io.appium</groupId> <artifactId>java-client</artifactId> 
+			<version>4.1.2</version> </dependency> -->
 		<dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.9.8</version>
-      <scope>test</scope>
-    </dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.8</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
