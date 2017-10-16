@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
-public class Sample1  {
+public class Sample2  {
 
 	public static HashMap<String, ArrayList<Integer>> orbitWithDistanceAndCraters = new HashMap<String, ArrayList<Integer>> ();
 	public static HashMap<String, Integer> orbitWithMaxSpeed = new HashMap<String, Integer> ();
@@ -18,18 +18,19 @@ public class Sample1  {
 	public static HashMap<String, Integer> vehicleWithSpeed = new HashMap<String, Integer> ();
 	public static LinkedHashMap<String, Float> option = new LinkedHashMap<String, Float>();
 	public static String[] vehicle = new String[3];
-	public static String[] orbit = new String[2];
+	public static String[] orbit = new String[4];
 	public static String[] weather = new String[3];
 
 	public static void main(String[] args) {
 
-		int maxSpeed1;
-		int maxSpeed2;
+		int maxSpeed1, maxSpeed2, maxSpeed3, maxSpeed4;
 		String weatherInput = "";
-		System.out.println("Please enter max speed for orbit 1 and orbit 2 respectively");
+		System.out.println("Please enter max speed for orbit 1, orbit 2, orbit 3 and orbit 4 respectively");
 		Scanner sc1 = new Scanner(System.in);
 		maxSpeed1 = sc1.nextInt();
 		maxSpeed2 = sc1.nextInt();
+		maxSpeed3 = sc1.nextInt();
+		maxSpeed4 = sc1.nextInt();
 		System.out.println("Please enter the weather name");
 		Scanner sc2 = new Scanner(System.in);
 		weatherInput = sc2.nextLine();
@@ -39,13 +40,19 @@ public class Sample1  {
 		orbitWithDistanceAndCraters.get("orbit1").add(18);		orbitWithDistanceAndCraters.get("orbit1").add(20);
 		orbitWithDistanceAndCraters.put("orbit2", new ArrayList<Integer>());
 		orbitWithDistanceAndCraters.get("orbit2").add(20);		orbitWithDistanceAndCraters.get("orbit2").add(10);
+		orbitWithDistanceAndCraters.put("orbit3", new ArrayList<Integer>());
+		orbitWithDistanceAndCraters.get("orbit3").add(30);		orbitWithDistanceAndCraters.get("orbit3").add(15);
+		orbitWithDistanceAndCraters.put("orbit4", new ArrayList<Integer>());
+		orbitWithDistanceAndCraters.get("orbit4").add(15);		orbitWithDistanceAndCraters.get("orbit4").add(18);
 
 
 		orbitWithMaxSpeed.put("orbit1", maxSpeed1);
 		orbitWithMaxSpeed.put("orbit2", maxSpeed2);
+		orbitWithMaxSpeed.put("orbit3", maxSpeed3);
+		orbitWithMaxSpeed.put("orbit4", maxSpeed4);
 
 		vehicle[0] = "Bike";		vehicle[1] = "Tuktuk";		vehicle[2] = "Car";    
-		orbit[0] = "orbit1";		orbit[1] = "orbit2";
+		orbit[0] = "orbit1";		orbit[1] = "orbit2";		orbit[2] = "orbit3";		orbit[3] = "orbit4";
 		weather[0] = "Sunny";		weather[1] = "Rainy";		weather[2] = "Windy";	
 
 		vehicleWithExtraaTime.put("Bike", 2F/60);		vehicleWithExtraaTime.put("Tuktuk", 1F/60);		vehicleWithExtraaTime.put("Car", 3F/60); 
@@ -53,36 +60,36 @@ public class Sample1  {
 		vehicleWithSpeed.put("Bike", 10);		vehicleWithSpeed.put("Tuktuk", 12);		vehicleWithSpeed.put("Car", 20);
 
 		if(weatherInput.trim().equalsIgnoreCase("Sunny")) {
-			for(int i = 0; i < orbit.length; i++) {
+			for(int i = 0; i < orbit.length - 1; i++) {
 				for(int j = 0; j < vehicle.length; j++) {
 					System.out.println("vehicle[j]=="+vehicle[j]);
-					option.put(orbit[i]+","+vehicle[j], (float) timeTaken(orbit[i], weatherInput, vehicle[j]));
+					option.put(orbit[i]+","+vehicle[j], ((float) timeTaken(orbit[i], weatherInput, vehicle[j])) + ((float) timeTaken(orbit[3], weatherInput, vehicle[j])));
 
 				}
 			}
 		}
 		else if (weatherInput.trim().equalsIgnoreCase("Rainy")) {
-			for(int i = 0; i < orbit.length; i++) {
+			for(int i = 0; i < orbit.length - 1; i++) {
 				for(int j = 0; j < vehicle.length; j++) {
 					if(vehicle[j].equalsIgnoreCase("Bike")){
 						
 					}
 					else {
 					System.out.println("vehicle[j]=="+vehicle[j]);
-					option.put(orbit[i]+","+vehicle[j], (float) timeTaken(orbit[i], weatherInput, vehicle[j]));
+					option.put(orbit[i]+","+vehicle[j], (float) timeTaken(orbit[i], weatherInput, vehicle[j]) + ((float) timeTaken(orbit[3], weatherInput, vehicle[j])));
 					}
 				}
 			}
 		}
 		else if (weatherInput.trim().equalsIgnoreCase("Windy")) {
-			for(int i = 0; i < orbit.length; i++) {
+			for(int i = 0; i < orbit.length - 1; i++) {
 				for(int j = 0; j < vehicle.length; j++) {
 					if(vehicle[j].equalsIgnoreCase("Tuktuk")){
 						
 					}
 					else {
 					System.out.println("vehicle[j]=="+vehicle[j]);
-					option.put(orbit[i]+","+vehicle[j], (float) timeTaken(orbit[i], weatherInput, vehicle[j]));
+					option.put(orbit[i]+","+vehicle[j], (float) timeTaken(orbit[i], weatherInput, vehicle[j]) + ((float) timeTaken(orbit[3], weatherInput, vehicle[j])));
 					}
 				}
 			}
@@ -159,3 +166,4 @@ public class Sample1  {
 	}
 
 }
+
