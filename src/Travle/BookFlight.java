@@ -14,12 +14,14 @@ import javax.swing.event.DocumentEvent.ElementChange;
 
 import org.apache.xml.serialize.ElementState;
 import org.omg.PortableServer.Current;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -61,7 +63,9 @@ public class BookFlight {
 /*  	This page has iframe that's why we are having issue in first time			*/		
 		System.out.println("Total frames on the page : " +(driver.findElements(By.xpath("//iframe")).size()));
 		driver.switchTo().frame(0);
-
+		
+		WebDriver driver1 = new ChromeDriver();
+		 
 /*		Using Actions class since it was also writing in the destination input box			*/		
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(By.xpath("//input[@name='origin_name']")));

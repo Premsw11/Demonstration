@@ -1,9 +1,12 @@
 package RESTAPI;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.internal.http.Method;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
+import com.mongodb.util.JSONParseException;
 
 public class GetMethod {
 	
@@ -20,8 +23,21 @@ public class GetMethod {
 				.header("content-type", "application/json")
 				//.body(NotesToBeAdded)
 				.when()
-				.get(url);
+				.post(url);
+		System.out.println(response);
+		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asString());
 		System.out.println(response.getContentType());
+		
+		Response response1 = RestAssured.given()
+				.authentication().basic("hjy", "sads")
+				.header("Content-Type", "application/json")
+				.when()
+				.delete(url);
+				
+		JsonParser parser = new JsonParser();
+		JsonObject obj = (JsonObject) parser.parse(response1.getBody().asString());
+		System.out.println("City is "+obj.get("FaultId"));
+		
 	}
 }

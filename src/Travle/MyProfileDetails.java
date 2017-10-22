@@ -92,7 +92,7 @@ public class MyProfileDetails {
 		}
 		
 /*		Create xls file	and write captured values and header			*/
-		File file = new File("F:\\IT\\EclipseWorkSpace\\Demo121\\Data\\data.xls");
+		File file = new File(System.getProperty("user.dir") + "Data" + File.separator + "data.xls");
 		FileInputStream inputStream = null;
 		try {
 			inputStream	 = new FileInputStream(file);

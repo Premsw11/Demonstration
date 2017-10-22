@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.exec.OS;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +37,7 @@ public class DropDown {
 // 
 		// Step 4:) Select option 'Europe' (Use selectByIndex)
 		oSelect.selectByVisibleText("Europe");
- 
+		
 		// Using sleep command so that changes can be noticed
 		Thread.sleep(2000);
  

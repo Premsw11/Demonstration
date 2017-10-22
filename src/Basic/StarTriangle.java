@@ -16,7 +16,7 @@ public static void main(String[] args) {
 		}
 		// for loop right spaces
 		for(int rs=i;rs<lr;rs++){
-			System.out.print("");
+			System.out.print(" ");
 		}
 		System.out.println();
 	}

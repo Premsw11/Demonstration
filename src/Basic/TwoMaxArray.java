@@ -14,6 +14,7 @@ public static void main(String[] args) {
 	li.add(11, 98);
 	li.add(12, 32);
 	li.add(13, 6);
+	li.add(14, 60);
 	for(Integer l : li) {    // To print all the values
 		System.out.print(l);
 		System.out.print(", ");

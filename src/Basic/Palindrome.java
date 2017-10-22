@@ -3,7 +3,7 @@ package Basic;
 public class Palindrome {
 	public static void main(String[] args) {
 		System.out.println("Please enter the word of palindrome");
-		String p = "MADAM";
+		String p = "MAAM";
 		System.out.println("The word is "+p);
 		System.out.println("length of p is :"+p.length());
 		System.out.println("verifying p is palindrome or not");

@@ -20,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -60,7 +61,7 @@ public class UserLogin {
 	}
 	public static void login() {
 
-		System.setProperty("webdriver.chrome.driver","F:\\IT\\EclipseWorkSpace\\Demo121\\lib\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "ExeFiles" + File.separator + "chromedriver.exe");
 		driver = new ChromeDriver();
 		
 /* 		To make an explicit wait for 30 seconds			*/
@@ -83,7 +84,7 @@ public class UserLogin {
 		String mainWindow = driver.getWindowHandle();
 		Set<String> allWindows = driver.getWindowHandles();
 		Iterator<String> itr = allWindows.iterator();
-		String childWindow = null;;
+		String childWindow = null;
 		if (allWindows.size()==2) {
 			System.out.println("Main window is :"+itr.next());
 			childWindow = itr.next();
@@ -94,7 +95,7 @@ public class UserLogin {
 		System.out.println("2st window"+driver.getTitle());
 
 		/*		To click on the Login link  			*/
-		element = driver.findElement(By.xpath("//*[contains(text(),'My Account')]"));
+		element = driver.findElement(By.xpath("//*[contains(text(),'MY ACCOUNT')]"));
 		element.click();
 		element = driver.findElement(By.xpath("//*[contains(text(),'Login')]"));
 		element.click();
@@ -110,7 +111,7 @@ public class UserLogin {
 	
 		/*  	TO ensure next page is fully download in order to continue with next class		*/	
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'John')]")));
-	
+		
 	}
 
 }
